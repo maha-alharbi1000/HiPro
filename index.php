@@ -8,7 +8,7 @@
     <div>
       <img
         id="img-features"
-        src="/images/features.png"
+        src="images/features.png"
         alt="HiPro main features image"
       />
     </div>
