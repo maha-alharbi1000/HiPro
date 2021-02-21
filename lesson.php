@@ -15,5 +15,14 @@
       </ul>
     </div>
     
+    <!-- Dialogflow Chatboot-->
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger
+      intent="WELCOME"
+      chat-title="HiPro"
+      agent-id="346a0f36-e6f4-4001-b4a5-a95cb421e471"
+      language-code="en"
+    ></df-messenger>
+
   </body>
 </html>
