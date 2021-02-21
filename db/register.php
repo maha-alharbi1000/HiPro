@@ -15,10 +15,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $name = trim($_POST["name"]);
     }
 
+
     // Validate email
     if(empty(trim($_POST["email"]))){
         $email_err = "Please enter a email.";
-    } else{
+    } elseif(!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)){
+        $email_err = "Invalid email format";
+    }else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE email = ?";
         
@@ -126,7 +129,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <div> 
             <button type="submit" class="btn btn-primary">Create Account</button>
         </div>
-        <p>Already have an account? <a href="login.php">Login here</a>.</p>
+        <p>Already have an account? <a href="../signin.html">Login here</a>.</p>
     </form>
     </div>
   </div>  

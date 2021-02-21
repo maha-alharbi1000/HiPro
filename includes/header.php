@@ -19,6 +19,6 @@
         <li><a href="lesson.php">Lesson</a></li>
         <li><a href="#">Quiz</a></li>
         <li><a href="#">Practice</a></li>
-        <li><a class="active" href="signin.html">Sign in</a></li>
+        <li><a class="active" href="db/register.php">Sign in</a></li>
       </ul>
     </nav>
