@@ -1,7 +1,7 @@
 <?php 
 
 /* Attempt MySQL server connection. Assuming you are running MySQL
-server with default setting (user 'root' with no password) */
+server with default setting (user 'root' with mysql password) */
 $link = mysqli_connect("localhost", "root", "mysql", "hipro-db");
  
 // Check connection
