@@ -7,7 +7,6 @@ $password = "mysql";
 $dbname = "hipro-db"
 
 //---------------Create connection---------
-
 $link = mysqli_connect($servername, $username, $password);
  
 // Check connection
