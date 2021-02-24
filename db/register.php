@@ -55,7 +55,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(empty(trim($_POST["password"]))){
         $password_err = "Please enter a password.";     
     } elseif(strlen(trim($_POST["password"])) < 6){
-        $password_err = "Password must have atleast 6 characters.";
+        $password_err = "Password must have at least 6 characters.";
     } else{
         $password = trim($_POST["password"]);
     }
@@ -78,7 +78,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // attempt insert query execution
         $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
         if(mysqli_query($link, $sql)){
-         header("location: ../signin.html");
+         header("location: login.php");
         } else{
          echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
          }
@@ -103,7 +103,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <div class="form">
       <div class="signin">
         <div class="signin-header">
-          <h3>Create New Account 33</h3>
+          <h3>Create New Account</h3>
           <p>Please enter your credentials to create new account.</p>
         </div>
       </div>
@@ -131,7 +131,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
          <div> 
             <button type="submit" class="btn btn-primary">Create Account</button>
         </div>
-        <p>Already have an account? <a href="../signin.html">Login here</a>.</p>
+        <p>Already have an account? <a href="login.php">Login here</a>.</p>
     </form>
     </div>
   </div>  

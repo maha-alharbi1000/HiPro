@@ -1,3 +1,15 @@
+<?php
+// Initialize the session
+session_start();
+ 
+// Check if the user is logged in, if not then redirect him to login page
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    $username = 'Login';
+}else {
+    $username = htmlspecialchars($_SESSION["username"]);
+}
+?>
+
 <head>
     <meta charset="utf-8" />
     <!-- <title>Responsive Navbar | CodingNepal</title> -->
@@ -19,7 +31,7 @@
         <li><a href="lesson.php">Lesson</a></li>
         <li><a href="#">Quiz</a></li>
         <li><a href="#">Practice</a></li>
-        <li><a class="active" href="db/login.php">Sign in</a></li>
+        <li><a class="active" href="db/login.php"><b><?php echo $username; ?></b></a></li>
 
       </ul>
     </nav>
