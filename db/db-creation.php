@@ -31,7 +31,12 @@ $sql = "CREATE TABLE users (
     id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) NOT NULL,
     email VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(50) NOT NULL)";
+    password VARCHAR(255) NOT NULL)";
+
+// if table aready exist Alter the existing table
+// DROP COLUMN password ;
+// ALTER TABLE users
+// ADD password VARCHAR(255) NOT NULL; 
         
 if(mysqli_query($link, $sql)){
     echo "Table users created successfully.";

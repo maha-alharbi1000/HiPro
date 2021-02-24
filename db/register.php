@@ -73,14 +73,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     // Check input errors before inserting in database
     if(empty($email_err) && empty($password_err) && empty($confirm_password_err) && empty($name_er)){
         
+        $password = password_hash($password, PASSWORD_DEFAULT); // Creates a password hash
 
         // attempt insert query execution
         $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
         if(mysqli_query($link, $sql)){
-            header("location: ../signin.html");
+         header("location: ../signin.html");
         } else{
-            echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-        }
+         echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+         }
+
     }
     
     // Close connection
