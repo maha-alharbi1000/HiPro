@@ -29,7 +29,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
       <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="lesson.php">Lesson</a></li>
-        <li><a href="#">Quiz</a></li>
+        <li><a href="lesson-chatbot.html">Quiz</a></li>
         <li><a href="#">Practice</a></li>
         <li><a class="active" href="db/login.php"><b><?php echo $username; ?></b></a></li>
 

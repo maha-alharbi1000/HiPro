@@ -25,7 +25,7 @@
     ></df-messenger> -->
 
   <!-- Botopy Chatboot-->
-    <script type="text/javascript"
+  <script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
     class="botcopy-embedder-d7lcfheammjct" 
     data-botId="602d769cd23ea5000830a75a">
@@ -34,12 +34,13 @@
     s.src = 'https://widget.botcopy.com/js/injection.js'; 
     document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
 
+    //button trigger
       function textOpen (text) {
       Botcopy.sendText(text, true);
     Botcopy.openWindow();
   }</script>
 
-  <iframe scr="https://www.botcopy.com/support/" width="400" height="600" ></iframe>
+    <!-- <iframe src="lesson-chatbot.html" width="500" height="500"></iframe> -->
 
   </body>
 </html>
