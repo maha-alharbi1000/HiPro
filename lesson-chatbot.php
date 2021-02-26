@@ -1,3 +1,7 @@
+<?php
+    session_start();
+ ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +13,10 @@
     </style>
 </head>
 <body>
-    
-    <script type="text/javascript"
+<h1>Hello, Your choosen lesson is: <?php echo gettype($_SESSION['lesson'])?></h1>
+<button onclick="eventOpen()">Send event and open chat window</button>
+
+<script type="text/javascript"
     id="botcopy-embedder-d7lcfheammjct"
     class="botcopy-embedder-d7lcfheammjct" 
     data-botId="602d769cd23ea5000830a75a"
@@ -20,6 +26,8 @@
     s.src = 'https://widget.botcopy.com/js/injection.js'; 
     document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
 </script>
+
+
 
 </body>
 </html>

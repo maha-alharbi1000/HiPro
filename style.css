@@ -8,12 +8,16 @@
 }
 body {
   font-family: roboto;
-  background-color: #f2f2f2;
+  background-color:  #f2f2f2;
 }
 
 .blue-background {
 
   background-color:#35a1f4;
+}
+
+.container {
+  margin-top: 8%;
 }
 
 /**Navigation Bar Styling**/
