@@ -1,7 +1,12 @@
 <?php
-// Initialize the session
-session_start();
-unset($_SESSION['lesson']);
+
+// Include config file
+//require_once "config.php";
+
+$id = $title = $desc = $image ="";
+$sql = "SELECT * FROM lesson";
+
+ 
 ?>
 
 <!DOCTYPE html>
@@ -10,61 +15,62 @@ unset($_SESSION['lesson']);
   <?php include('includes/header.php'); ?>
 
   <div class="container center">
-        <div class="row justify-content-center">
+    <div class="row justify-content-center">
+    <?php if($result = mysqli_query($link, $sql)){
+    if(mysqli_num_rows($result) > 0){
+        while($row = mysqli_fetch_array($result)){
+            $id= $row['lesson_id'];
+            $title = $row['lesson_title'];
+            $desc = $row['lesson_desc'];
+           // $image = "img\balnk-image.png";// the foweard slash caz error when concating 
+            //$image ="img\\lesson-cover\\". $name . ".png";
+            //$image = "images\lesson-cover\balnk-image.png"
+            $image ="images\\lesson-cover\\". $id . ".png";
+?>             
             <div class="col-md-4">
                 <div class="card shadow" style="width: 16rem;">
-                    <img class="card-img-top" src="images\balnk-image.png" alt="Card image cap">
+                    <img class="card-img-top" src='<?php echo $image ?>' alt="Lesson Cover">
                     <div class="card-body text-center">
-                      <h5 class="card-title">Lesson 1</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Start Learning</a>
+                      <h5 class="card-title"><?php echo $title ?></h5>
+                      <p class="card-text"><?php echo $desc ?></p>
+                      <a onclick="textOpen('<?php echo $title ?>')" class="btn btn-primary">Start Learning</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card shadow" style="width: 16rem;">
-                    <img class="card-img-top" src="images\balnk-image.png" alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Lesson 2</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Start Learning</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card shadow" style="width: 16rem;">
-                    <img class="card-img-top" src="images\balnk-image.png" alt="Card image cap">
-                    <div class="card-body text-center">
-                      <h5 class="card-title">Lesson 3</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                      <a href="#" class="btn btn-primary">Start Learning</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+<?php   }
+        // Free result set
+        mysqli_free_result($result);
+    } else{
+        echo "No records matching your query were found.";
+    }
+} else{
+    echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+}
+?> 
     </div>
-    <!--list of lessons-->
-    <!-- <div class="listST">
-      <h2>Choose Lesson</h2>
-      <ul>
-        <li><a href="#" >Python introduction</a></li>
-        <li><a onclick="textOpen('Print Lesson')" >Print Lesson</a></li>
-        <li><a onclick=<?php $_SESSION['lesson']='lessonError'?>> Error Lesson</a></li>
-        <li><a href="#">Variable types</a></li>
-        <li><a href="#">Basic functions</a></li>
-      </ul>
+</div>
 
-    </div> -->
-    <!-- Dialogflow Chatboot-->
-    <!-- <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
-    <df-messenger
-      intent="WELCOME"
-      chat-title="HiPro"
-      agent-id="346a0f36-e6f4-4001-b4a5-a95cb421e471"
-      language-code="en"
-    ></df-messenger> -->
 
-    <!-- <iframe src="lesson-chatbot.html" width="500" height="500"></iframe> -->
+    <script type="text/javascript"
+    id="botcopy-embedder-d7lcfheammjct"
+    class="botcopy-embedder-d7lcfheammjct" 
+    data-botId="602d769cd23ea5000830a75a"
+>
+    var s = document.createElement('script'); 
+    s.type = 'text/javascript'; s.async = true; 
+    s.src = 'https://widget.botcopy.com/js/injection.js'; 
+    document.getElementById('botcopy-embedder-d7lcfheammjct').appendChild(s);
+
+
+  function textOpen(text) {
+  Botcopy.sendText(text, true);
+  Botcopy.openWindow();
+  }
+  function printtext(text){
+    console.log(text);
+  }
+</script>
 
   </body>
 </html>

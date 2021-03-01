@@ -12,12 +12,17 @@ body {
 }
 
 .blue-background {
-
   background-color:#35a1f4;
 }
 
+/**Alter bootsrap Styling**/
 .container {
-  margin-top: 8%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.btn-primary{
+  background-color:#35a1f4;
+  color: white;
 }
 
 /**Navigation Bar Styling**/

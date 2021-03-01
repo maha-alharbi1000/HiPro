@@ -98,7 +98,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <link rel="stylesheet" href="../style.css">
 </head>
-<body>
+<body class="blue-background">
 <div class="signin-page">
     <div class="form">
       <div class="signin">
