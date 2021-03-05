@@ -22,9 +22,6 @@ $sql = "SELECT * FROM lesson";
             $id= $row['lesson_id'];
             $title = $row['lesson_title'];
             $desc = $row['lesson_desc'];
-           // $image = "img\balnk-image.png";// the foweard slash caz error when concating 
-            //$image ="img\\lesson-cover\\". $name . ".png";
-            //$image = "images\lesson-cover\balnk-image.png"
             $image ="images\\lesson-cover\\". $id . ".png";
 ?>             
             <div class="col-md-4">
