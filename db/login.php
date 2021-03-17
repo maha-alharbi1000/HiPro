@@ -38,7 +38,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $sql = "SELECT id, name, email, password FROM users WHERE email = ?";
         
         if($stmt = mysqli_prepare($link, $sql)){
-            // Bind variables to the prepared statement as parameters
+            // Bind variables to the prepared statement as parameters (this statment is for make sure that the qeruy is valid and not acepted rubish varible/data)
             mysqli_stmt_bind_param($stmt, "s", $param_email);
             
             // Set parameters
@@ -52,7 +52,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 // Check if email exists, if yes then verify password
                 if(mysqli_stmt_num_rows($stmt) == 1){                    
                     // Bind result variables
-                    mysqli_stmt_bind_result($stmt, $id, $name, $email, $hashed_password);
+                    mysqli_stmt_bind_result($stmt, $id, $name, $email, $hashed_password);//I need to read about this line
                     if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
@@ -75,7 +75,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $email_err = "No account found with that email.";
                 }
             } else{
-                echo "Oops! Something went wrong. Please try again later.";
+                echo "Oops! Something went wrong with the database. Please try again later.";//the qeury didn't run correctly
             }
 
             // Close statement

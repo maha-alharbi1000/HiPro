@@ -78,10 +78,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         // attempt insert query execution
         $sql = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$password')";
         if(mysqli_query($link, $sql)){
-         header("location: login.php");
-        } else{
+            //NOTE: add ALERT you sussfuly registerd
+            //echo '<script>alert("Successfully Registered. Login To Your Account")</script>'; 
+            header("location: login.php");
+        }else{
          echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
-         }
+        }
 
     }
     

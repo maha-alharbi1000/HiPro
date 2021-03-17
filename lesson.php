@@ -1,7 +1,10 @@
 <?php
 
-// Include config file
-//require_once "config.php";
+session_start();
+if(!isset($_SESSION["loggedin"])){
+  header("location: db\login.php");
+  exit;
+}
 
 $id = $title = $desc = $image ="";
 $sql = "SELECT * FROM lesson";
