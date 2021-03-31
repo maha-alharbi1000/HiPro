@@ -15,7 +15,6 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 
 <head>
     <meta charset="utf-8" />
-    <!-- <title>Responsive Navbar | CodingNepal</title> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css" />
@@ -34,7 +33,7 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
         <li><a href="index.php">Home</a></li>
         <li><a href="lesson.php">Lesson</a></li>
         <li><a href="quizelist.php">Quiz</a></li>
-        <li><a href="#">Practice</a></li>
+        <li><a href="practice.php">Practice</a></li>
         <li><a class="active" href="db/login.php"><b><?php echo $username; ?></b></a></li>
 
       </ul>
