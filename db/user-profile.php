@@ -10,7 +10,9 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
 ?>
  
 <!DOCTYPE html>
-<html lang="en">
+<html>
+<?php include("../includes/header.php"); ?>
+
 <head>
     <meta charset="UTF-8">
     <title>Welcome</title>

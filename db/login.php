@@ -4,7 +4,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-  header("location: user-profile.php");
+  header("location: profile.php");
   exit;
 }
  
@@ -61,10 +61,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $name;                          
-                            
+                            $_SESSION["username"] = $name;
+                            $_SESSION["email"] = $email;
+                            $_SESSION["hashpasswor"]=$hashed_password;
+                            //store user point in session
+                            $userPoint=mysqli_query($link,"select point from users where id =$_SESSION[id]") or die(mysqli_error());
+                            $userPoint_string=mysqli_fetch_array($userPoint);                  
+                            $_SESSION["point"] = intval($userPoint_string[0]); 
                             // Redirect user to welcome page
-                            header("location: user-profile.php");
+                            header("location: profile.php");
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
